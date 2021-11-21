@@ -14,7 +14,7 @@ func (c *Client) GetCorpInfo(ctx context.Context) (*types.GetCorpInfoRsp, error)
 		types.GetCorpInfoRsp `json:"data"`
 	}
 
-	err := c.Do(ctx, http.MethodGet, "/cgi-bin/v1/account/profile/corp/info", nil, resp)
+	err := c.Do(ctx, http.MethodGet, "/cgi-bin/v1/account/profile/corp/info", nil, &resp)
 	if err != nil {
 		return nil, err
 	}

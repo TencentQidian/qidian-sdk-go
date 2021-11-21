@@ -15,7 +15,7 @@ func (c *Client) Departments(ctx context.Context) (*types.GetDepartmentsRsp, err
 		types.GetDepartmentsRsp `json:"data"`
 	}
 
-	err := c.Do(ctx, http.MethodPost, "/cgi-bin/v1/org/basic/GetDepList", nil, resp)
+	err := c.Do(ctx, http.MethodPost, "/cgi-bin/v1/org/basic/GetDepList", nil, &resp)
 	if err != nil {
 		return nil, err
 	}
