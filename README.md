@@ -23,19 +23,19 @@ func main()  {
 	
     // 使用应用授权code换取应用授权token
     resp, err := cmpt.GetOAuthAPPToken(context.Background(), &types.GetOAuthAPPTokenReq{
-        AuthorizationCode: cmd.Code,
+        AuthorizationCode: "AUTHORIZATION_CODE",
     })
 	
     // 获取应用开发商 token
     resp, err := cmpt.GetComponentToken(context.Background(), &types.GetComponentTokenReq{
-        ComponentVerifyTicket: tm.ComponentVerifyTicket,
+        ComponentVerifyTicket: "COMPONENT_VERIFY_TICKET",
     })
 
     // 刷新 Token
     refreshResp, err := cmpt.RefreshAuthorizerToken(context.Background(), &types.RefreshAuthorizerTokenReq{
-        AuthorizerAppID:        resp.AuthorizationInfo.AuthorizerAppID,
-        AuthorizerRefreshToken: resp.AuthorizationInfo.AuthorizerRefreshToken,
-        SID:                    resp.AuthorizationInfo.ApplicationID,
+        AuthorizerAppID:        "AUTHORIZER_APP_ID",
+        AuthorizerRefreshToken: "AUTHORIZER_REFRESH_TOKEN",
+        SID:                    "APPLICATION_ID",
     })
 	
 	
